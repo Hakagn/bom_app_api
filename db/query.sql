@@ -11,9 +11,10 @@ WITH RECURSIVE bom_CTE (part_id, parentPart_id, quantity) AS
        WHERE PARENT.SUBPART = CHILD.PART
    )
 SELECT
+  id,
+  parentPart_id AS parent,
   partNumber,
   partName,
-  parentPart_id,
   SUM(quantity) AS "Total_qty"
 FROM bom
 INNER JOIN part
