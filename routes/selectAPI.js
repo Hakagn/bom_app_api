@@ -1,24 +1,36 @@
 var express = require('express');
 var router = express.Router();
-let mysql = require('mysql');
-let bodyParser = require('body-parser');
+//let mysql = require('mysql');
+//let bodyParser = require('body-parser');
 
-var connection = mysql.createConnection({
+/* var connection = mysql.createConnection({
   host: 'localhost',
   user: 'haakon',
   password: '',
-  database: 'join_us'
-});
+  database: 'bom_app'
+}); */
 
-router.get('/', function (req, res, next) {
-  //FIND COUNT OF USERS IN DATABASE
-  let q = 'SELECT COUNT(*) AS count FROM users';
+router.get('/', (req, res) => res.send('Hello World!'))
+
+/* router.get('/', function (req, res, next) {
+  //FIND COUNT OF PARTS IN DATABASE
+  let q = 'SELECT * FROM part';
+  connection.query(q, function (error, results) {
+    if (error) throw error;
+    //RESPOND WITH THAT COUNT
+    res.send(results[0]);
+  })
+}); */
+
+/* router.get('/', function (req, res, next) {
+  //FIND COUNT OF PARTS IN DATABASE
+  let q = 'SELECT COUNT(*) AS count FROM part';
   connection.query(q, function (error, results) {
     if (error) throw error;
     let count = results[0].count;
     //RESPOND WITH THAT COUNT
-    res.send("There is " + count + " users in the database");
+    res.send("There is " + count + " parts in the database");
   })
-});
+}); */
 
 module.exports = router;
