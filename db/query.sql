@@ -28,7 +28,7 @@ ORDER BY part_id, parentPart_id;
     parentPart_id,
     quantity
   FROM bom
-  WHERE part_id = 1
+  WHERE part_id = 22
   UNION ALL
   SELECT
     e.part_id,
@@ -54,7 +54,7 @@ ORDER BY part_id, parentPart_id;
            0 bomLevel,
            quantity
    FROM bom
-   WHERE parentPart_id =18
+   WHERE parentPart_id = 18
      UNION ALL
      SELECT e.part_id,
             e.parentPart_id,

@@ -1,26 +1,26 @@
 var express = require('express');
 var router = express.Router();
-//let mysql = require('mysql');
-//let bodyParser = require('body-parser');
+let mysql = require('mysql');
+let bodyParser = require('body-parser');
 
-/* var connection = mysql.createConnection({
+var connection = mysql.createConnection({
   host: 'localhost',
   user: 'haakon',
   password: '',
   database: 'bom_app'
-}); */
+});
 
-router.get('/', (req, res) => res.send('Hello World!'))
+// router.get('/', (req, res) => res.send('Hello World!'))
 
-/* router.get('/', function (req, res, next) {
-  //FIND COUNT OF PARTS IN DATABASE
+router.get('/', function (req, res, next) {
+  //SELECT EVERYTHING FROM part TABLE
   let q = 'SELECT * FROM part';
   connection.query(q, function (error, results) {
     if (error) throw error;
-    //RESPOND WITH THAT COUNT
-    res.send(results[0]);
+    //RESPOND WITH the partName OF FIRST ITEM IN THE ARRAY
+    res.send(results[0].partName);
   })
-}); */
+});
 
 /* router.get('/', function (req, res, next) {
   //FIND COUNT OF PARTS IN DATABASE
